@@ -8,9 +8,16 @@ const db = mysql.createPool({
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'my_website_db',
+  port: Number(process.env.DB_PORT) || 4000, // TiDB يستخدم منفذ 4000 عادةً
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+  // --- الإضافة الضرورية والمنقذة هنا ---
+  ssl: {
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: true
+  }
+  // ------------------------------------
 });
 
 export default db;
