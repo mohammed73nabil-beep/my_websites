@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --font-cairo: "Cairo", sans-serif;
+  --color-primary: #004bca;
+  --color-primary-hover: #003ea8;
+  --color-secondary: #f8fafc;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-cairo);
+  }
+}
